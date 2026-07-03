@@ -14,8 +14,20 @@ navegador.get("https://use.ai/pt?model=claude&utm_match_type=e&utm_funnel=&partn
 #Tela cheia
 navegador.maximize_window()
 
+campo_pergunta = WebDriverWait(navegador, 20).until(
+    EC.element_to_be_clickable(
+        (By.CSS_SELECTOR, '[data-testid="chat-input-textarea"]')
+    )
+)
+
+
+campo_pergunta.send_keys("Como fazer uma limonada")
+campo_pergunta.send_keys(Keys.ENTER)
+
 #Achando o texto e escrevendo
+
 #campo_pergunta = navegador.find_element(By.CLASS_NAME, "col-start-1.col-end-2.row-start-1.row-end-2.w-full.select-text.resize-none.overflow-hidden.border-0.bg-transparent.text-base.leading-6.outline-none.[overflow-wrap:break-word].placeholder:whitespace-nowrap.placeholder:font-normal.text-[#0d0d0d].placeholder-[#3d3d3da9].dark:text-foreground.dark:placeholder-[#9ca3af]")
+
 #campo_pergunta.send_keys("Bom dia")
 #campo_pergunta.send_keys(Keys.ENTER)
 #Clique no botao
